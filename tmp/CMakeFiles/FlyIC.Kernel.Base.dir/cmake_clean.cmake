@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/mnt/projdisk/FlyLLC/FlyIC пакеты/FlyIC.Kernel.Base/lib/Debug/FlyIC.Kernel.Base.a"
-  "/mnt/projdisk/FlyLLC/FlyIC пакеты/FlyIC.Kernel.Base/lib/Debug/FlyIC.Kernel.Base.pdb"
+  "/mnt/projdisk/FlyLLC/FlyIC пакеты/FlyIC.Kernel.Base/lib/Release/FlyIC.Kernel.Base.a"
+  "/mnt/projdisk/FlyLLC/FlyIC пакеты/FlyIC.Kernel.Base/lib/Release/FlyIC.Kernel.Base.pdb"
   "CMakeFiles/FlyIC.Kernel.Base.dir/src/lib.cpp.o"
   "CMakeFiles/FlyIC.Kernel.Base.dir/src/lib.cpp.o.d"
 )
