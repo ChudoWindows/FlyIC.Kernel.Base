@@ -21,7 +21,7 @@ endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-add_library(${ProjectName} STATIC src/lib.cpp)
+add_library(${ProjectName} STATIC src/lib.cpp src/placeholders.cpp)
 
 set_target_properties(${ProjectName} PROPERTIES PREFIX "")
 
