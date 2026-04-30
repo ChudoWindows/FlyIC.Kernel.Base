@@ -57,7 +57,7 @@ UINT8 EncoderUTF::ToUtf32(LPCUINT16 Buffer, LPINT32 Sym)
 		}
 	}
 	
-	return 2;
+	return 0;
 }
 
 UINT8 EncoderUTF::ToUtf8(LPCINT32 Buffer, LPINT8 Sym)
@@ -79,7 +79,7 @@ UINT8 EncoderUTF::ToUtf8(LPCINT32 Buffer, LPINT8 Sym)
 		Sym[0] = (INT8)(0xE0 | (code >> 12));
 		Sym[1] = (INT8)(0x80 | ((code >> 6) & 0x3F));
 		Sym[2] = (INT8)(0x80 | (code & 0x3F));
-		return 2;
+		return 3;
 	}
 	else if (code <= 0x0010FFFF) // 4 символа
 	{
@@ -110,5 +110,5 @@ UINT8 EncoderUTF::ToUtf16(LPCINT32 Buffer, LPUINT16 Sym)
 		return 2;
 	}
 
-	return 2;
+	return 0;
 }
