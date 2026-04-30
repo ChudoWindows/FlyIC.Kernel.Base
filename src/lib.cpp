@@ -52,3 +52,63 @@ UINT8 EncoderUTF::ToUtf32(LPCUINT16 Buffer, LPINT32 Sym)
 		UINT16 w2 = Buffer[1];
 		if (w2 >= 0xDC00 && w2 <= 0xDFFF)
 		{
+			*Sym = 0x10000 + ((w1 - 0xD800) << 10) + (w2 - 0xDC00);
+			return 2;
+		}
+	}
+	
+	return 2;
+}
+
+UINT8 EncoderUTF::ToUtf8(LPCINT32 Buffer, LPINT8 Sym)
+{
+	INT32 code = Buffer[0];
+	if (code <= 0x0000007F) // 1 символ
+	{
+		Sym[0] = (INT8)code;
+		return 1;
+	}
+	else if (code <= 0x000007FF) // 2 символа
+	{
+		Sym[0] = (INT8)(0xC0 | (code >> 6));
+		Sym[1] = (INT8)(0x80 | (code & 0x3F));
+		return 2;
+	}
+	else if (code <= 0x0000FFFF) // 3 символа
+	{
+		Sym[0] = (INT8)(0xE0 | (code >> 12));
+		Sym[1] = (INT8)(0x80 | ((code >> 6) & 0x3F));
+		Sym[2] = (INT8)(0x80 | (code & 0x3F));
+		return 2;
+	}
+	else if (code <= 0x0010FFFF) // 4 символа
+	{
+		Sym[0] = (INT8)(0xF0 | (code >> 18));
+		Sym[1] = (INT8)(0x80 | ((code >> 12) & 0x3F));
+		Sym[2] = (INT8)(0x80 | ((code >> 6) & 0x3F));
+		Sym[3] = (INT8)(0x80 | (code & 0x3F));
+		return 4;
+	}
+
+	return 0;
+}
+
+UINT8 EncoderUTF::ToUtf16(LPCINT32 Buffer, LPUINT16 Sym)
+{
+	INT32 code = Buffer[0];
+
+	if (code <= (INT32)0x0000FFFF) // 2 байта
+	{
+		Sym[0] = (INT16)code;
+		return 1;
+	}
+	else if (code <= (INT32)0x0010FFFF) // 4 байта
+	{
+		INT32 adaptive = code - 0x10000;
+		Sym[0] = (INT16)(0xD800 + (adaptive >> 10));
+		Sym[1] = (INT16)(0xDC00 + (adaptive & 0x3FF));
+		return 2;
+	}
+
+	return 2;
+}
