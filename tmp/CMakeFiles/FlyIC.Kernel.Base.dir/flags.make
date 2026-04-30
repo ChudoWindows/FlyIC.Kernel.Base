@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I"/mnt/projdisk/FlyLLC/FlyIC пакеты/FlyIC.Kernel.Base/include"
 
-CXX_FLAGS = -O3 -DNDEBUG -nostdlib -ffreestanding -nostdinc++ -fno-exceptions -fno-rtti -fno-stack-protector --target=x86_64-pc-linux-gnu -g0 -O2
+CXX_FLAGS = -O3 -DNDEBUG -nostdlib -ffreestanding -nostdinc++ -fno-exceptions -fno-rtti -fno-stack-protector -Wall -Wextra --target=x86_64-pc-linux-gnu -g0 -O2
 

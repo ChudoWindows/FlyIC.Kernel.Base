@@ -10,7 +10,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE})
 set(ProjectName FlyIC.Kernel.Base)
 project(${ProjectName})
 
-set(COMPILE_BASE_FLAGS -nostdlib -ffreestanding -nostdinc++ -fno-exceptions -fno-rtti -fno-stack-protector --target=x86_64-pc-linux-gnu)
+set(COMPILE_BASE_FLAGS -nostdlib -ffreestanding -nostdinc++ -fno-exceptions -fno-rtti -fno-stack-protector -Wall -Wextra --target=x86_64-pc-linux-gnu)
 set(LINK_BASE_FLAGS -nostdlib -Wl,e,startup -fuse-ld=lld)
 
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
