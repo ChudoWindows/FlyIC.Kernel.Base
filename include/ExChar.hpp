@@ -26,10 +26,10 @@ public:
 class EncoderUTF
 {
 public:
-	UINT8 ToUtf32(LPCINT8 Sym, LPINT32 Code);
-	UINT8 ToUtf32(LPCUINT16 Sym, LPINT32 Code);
-	UINT8 ToUtf16(LPCINT32 Sym, LPUINT16 Code);
-	UINT8 ToUtf8(LPCINT32 Sym, LPINT8 Code);
+	static UINT8 ToUtf32(LPCINT8 Sym, LPINT32 Code);
+	static UINT8 ToUtf32(LPCUINT16 Sym, LPINT32 Code);
+	static UINT8 ToUtf16(LPCINT32 Sym, LPUINT16 Code);
+	static UINT8 ToUtf8(LPCINT32 Sym, LPINT8 Code);
 };
 
 #endif
