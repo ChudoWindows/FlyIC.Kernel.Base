@@ -29,7 +29,7 @@ if [ $build_type == "Debug" ]; then
 fi
 
 if [ $build_type == "Release" ]; then
-	compile_flags="$compile_flags -s -O2 -march=native"
+	compile_flags="$compile_flags -O2 -march=native"
 fi
 
 echo "(1/3) lib.cpp"; clang++ -c ./src/lib.cpp -o ./build/$build_type/lib.o $compile_flags
